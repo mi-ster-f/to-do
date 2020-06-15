@@ -95,7 +95,7 @@ body {
 
 h1 {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-size: 56px;
   font-family: 'Dancing Script', cursive;
 }
@@ -143,7 +143,6 @@ h1 {
 
 .formInput {
   background-color: #f9e79f;
-  text-decoration: none;
   border: none;
   box-shadow: 2px 3px black;
   opacity: 50%;
@@ -158,6 +157,7 @@ h1 {
   text-align: center;
   line-height: 18px;
   background-color: #f9e79f;
+  color: black;
 }
 
 .checkboxStyles {
