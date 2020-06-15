@@ -132,6 +132,7 @@ h1 {
 
 .todos {
   margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .listItem {
