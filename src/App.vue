@@ -131,7 +131,7 @@ h1 {
 }
 
 .todos {
-  margin-top: 400px;
+  margin-top: 100px;
 }
 
 .listItem {
