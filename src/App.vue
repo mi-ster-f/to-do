@@ -145,13 +145,13 @@ h1 {
   background-color: #f9e79f;
   border: none;
   box-shadow: 2px 3px black;
-  opacity: 50%;
+  opacity: 0.5;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .editFormInput {
-  opacity: 40%;
+  opacity: 0.4;
   border: none;
   width: 40%;
   text-align: center;
