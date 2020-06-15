@@ -131,7 +131,7 @@ h1 {
 }
 
 .todos {
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .listItem {
@@ -142,6 +142,7 @@ h1 {
 }
 
 .formInput {
+  background-color: #f9e79f;
   text-decoration: none;
   border: none;
   box-shadow: 2px 3px black;
@@ -156,6 +157,7 @@ h1 {
   width: 40%;
   text-align: center;
   line-height: 18px;
+  background-color: #f9e79f;
 }
 
 .checkboxStyles {
