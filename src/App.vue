@@ -138,7 +138,7 @@ h1 {
   margin-top: 10px;
   word-wrap: break-word;
   border-bottom: 0.5px dotted white;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .formInput {
@@ -147,7 +147,7 @@ h1 {
   box-shadow: 2px 3px black;
   opacity: 50%;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .editFormInput {
