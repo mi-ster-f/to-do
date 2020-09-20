@@ -12,7 +12,7 @@
           placeholder="Add a to-do"
           class="formInput md-title"
         ></b-form-input>
-        <md-list class="todos ">
+        <md-list class="todos">
           <md-list-item
             v-for="todo in todos"
             :key="todo.id"
@@ -22,6 +22,7 @@
           >
             <input
               v-model="todo.completed"
+              @click="completeToDo(todo)"
               type="checkbox"
               class="checkboxStyles"
             />
@@ -29,20 +30,17 @@
               v-show="editedToDoId !== todo.id"
               :class="{ taskComplete: todo.completed }"
               class="md-display-3"
-              >{{ todo.label }}
-              <md-tooltip class="toolTip" md-direction="left"
-                >Double click to edit</md-tooltip
-              >
+            >
+              {{ todo.label }}
+              <md-tooltip class="toolTip" md-direction="left">Double click to edit</md-tooltip>
             </span>
             <input
               v-model="todo.label"
               v-show="editedToDoId == todo.id"
-              v-on:keyup.enter="updateTodo()"
+              v-on:keyup.enter="updateTodo() "
               class="editFormInput md-display-1"
             />
-            <button @click="removeTodo(todo)" class="buttonStyles">
-              Delete
-            </button>
+            <button @click="removeTodo(todo)" class="buttonStyles">Delete</button>
           </md-list-item>
         </md-list>
       </b-col>
@@ -58,8 +56,8 @@ export default {
   data() {
     return {
       todos: [],
-      currentTodo: '',
-      editedToDoId: null,
+      currentTodo: "",
+      editedToDoId: null
     };
   },
   methods: {
@@ -67,21 +65,41 @@ export default {
       this.todos.push({
         id: this.todos.length,
         label: this.currentTodo,
-        completed: false,
+        completed: false
       });
-      this.currentTodo = '';
+      this.currentTodo = "";
+      this.saveToStorage();
     },
     removeTodo(todo) {
       var index = this.todos.indexOf(todo);
       this.todos.splice(index, 1);
+      this.saveToStorage();
     },
     setToEdited(todo) {
       this.editedToDoId = todo.id;
     },
     updateTodo() {
       this.editedToDoId = null;
+      this.saveToStorage();
     },
+    completeToDo(todo) {
+      todo.completed = !todo.completed;
+      this.saveToStorage();
+    },
+    saveToStorage() {
+      const parsed = JSON.stringify(this.todos);
+      localStorage.setItem("todos", parsed);
+    }
   },
+  mounted() {
+    if (localStorage.getItem("todos")) {
+      try {
+        this.todos = JSON.parse(localStorage.getItem("todos"));
+      } catch (e) {
+        localStorage.removeItem("todos");
+      }
+    }
+  }
 };
 </script>
 
@@ -97,7 +115,7 @@ h1 {
   margin-top: 50px;
   margin-bottom: 40px;
   font-size: 56px;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
 .row1 {
@@ -114,7 +132,7 @@ h1 {
   width: 80%;
   min-height: 600px;
   box-shadow: 5px 10px white;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   font-size: 1rem;
 }
 
