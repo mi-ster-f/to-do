@@ -22,7 +22,7 @@
           >
             <input
               v-model="todo.completed"
-              @click="saveToStorage()"
+              @click="completeToDo(todo)"
               type="checkbox"
               class="checkboxStyles"
             />
@@ -80,6 +80,10 @@ export default {
     },
     updateTodo() {
       this.editedToDoId = null;
+      this.saveToStorage();
+    },
+    completeToDo(todo) {
+      todo.completed = !todo.completed;
       this.saveToStorage();
     },
     saveToStorage() {
